@@ -1,0 +1,178 @@
+/* FOOTER BASE - EXPANSIÓN TOTAL */
+.footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+    background-color: #1a1a2e;
+    color: #ffffff;
+    padding: 80px 0 0; /* Padding lateral a 0 porque lo maneja el wrapper */
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-contenido {
+    max-width: 1300px; /* Un poco más ancho para estilo premium */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: 60px;
+    padding: 0 5vw 60px; /* Padding interno dinámico */
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.footer-logo h2 {
+    color: #e2b96f;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* SECCIONES */
+.footer-seccion h3 {
+    color: #e2b96f;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+}
+
+/* Línea decorativa bajo el título */
+.footer-seccion h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #e2b96f;
+}
+
+.footer-seccion p {
+    font-size: 14px;
+    color: #aaaaaa;
+    line-height: 1.8;
+}
+
+/* LISTAS Y ENLACES */
+.footer-seccion ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-seccion ul li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-seccion ul li a {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.footer-seccion ul li a:hover {
+    color: #e2b96f;
+    transform: translateX(5px);
+}
+
+/* REDES SOCIALES */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-links a {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.03);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-links a:hover {
+    background: #e2b96f;
+    color: #1a1a2e;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(226, 185, 111, 0.2);
+}
+
+/* BARRA INFERIOR (COPYRIGHT) */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px 0;
+    background-color: #161629; /* Un tono ligeramente más oscuro */
+}
+
+.footer-bottom-flex {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+}
+
+.footer-bottom p {
+    color: #666;
+    font-size: 13px;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-legal a {
+    color: #666;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.footer-legal a:hover {
+    color: #e2b96f;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .footer-contenido {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .footer-seccion h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-logo, .footer-seccion ul li, .social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom-flex {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

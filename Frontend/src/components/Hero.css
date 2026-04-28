@@ -1,0 +1,155 @@
+/* Hero.css */
+
+.hero {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    /* Centrado forzado por si el contenedor padre es pequeño */
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+    background-image: linear-gradient(rgba(26, 26, 46, 0.7), rgba(26, 26, 46, 0.4)), 
+                      url('https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1600');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.hero-contenido {
+    max-width: 850px;
+    text-align: center;
+    color: #ffffff;
+    z-index: 2;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-contenido h1 {
+    font-size: clamp(38px, 8vw, 72px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.hero-contenido h1 span {
+    color: #e2b96f; /* El dorado de tu marca */
+}
+
+.hero-contenido p {
+    font-size: clamp(16px, 2.5vw, 20px);
+    margin-bottom: 40px;
+    color: #e0e0e0;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.hero-botones {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Botones Premium */
+.btn-primario, .btn-secundario {
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primario {
+    background-color: #e2b96f;
+    color: #1a1a2e;
+    box-shadow: 0 4px 15px rgba(226, 185, 111, 0.3);
+}
+
+.btn-primario:hover {
+    background-color: #d4a95a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(226, 185, 111, 0.4);
+}
+
+.btn-secundario {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    backdrop-filter: blur(8px);
+}
+
+.btn-secundario:hover {
+    background-color: #ffffff;
+    color: #1a1a2e;
+    transform: translateY(-3px);
+}
+
+/* Indicador de Mouse (Detalle Pro) */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background-color: #e2b96f;
+    border-radius: 2px;
+    margin-top: 8px;
+    animation: scrollMove 2s infinite;
+}
+
+@keyframes scrollMove {
+    0% { opacity: 0; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(10px); }
+    100% { opacity: 0; transform: translateY(15px); }
+}
+
+/* Responsive para Celulares */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll; /* Mejora rendimiento móvil */
+        height: 100vh;
+    }
+
+    .hero-botones {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .btn-primario, .btn-secundario {
+        width: 100%;
+        text-align: center;
+    }
+}

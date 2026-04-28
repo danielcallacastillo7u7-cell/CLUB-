@@ -1,0 +1,31 @@
+/* src/pages/Inicio.css */
+.inicio-container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.inicio-titulo {
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.inicio-subtitulo {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn-ingresar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ingresar:hover {
+    background-color: #0056b3;
+}

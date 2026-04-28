@@ -1,0 +1,186 @@
+/* CONTACTO BASE - ANCHO TOTAL */
+.contacto {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+    padding: 100px 0;
+    background-color: #f9f6f0;
+    overflow: hidden;
+}
+
+.contacto-contenido {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(40px, 5vw, 100px);
+    align-items: center;
+    padding: 0 5vw;
+}
+
+/* --- INFORMACIÓN DE CONTACTO --- */
+.contacto-info h2 {
+    font-size: clamp(32px, 5vw, 48px);
+    color: #1a1a2e;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.contacto-info h2 span {
+    color: #e2b96f;
+    display: block;
+}
+
+.contacto-info > p {
+    color: #555;
+    font-size: 17px;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+/* Grid de datos (2x2 en desktop) */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.contacto-dato {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.contacto-dato:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(26, 26, 46, 0.05);
+}
+
+.icon-box {
+    color: #e2b96f;
+    background: #1a1a2e;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.contacto-dato h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+.contacto-dato p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* --- FORMULARIO PREMIUM --- */
+.contacto-form {
+    background-color: #ffffff;
+    padding: clamp(30px, 5vw, 60px);
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(26, 26, 46, 0.1);
+}
+
+.form-grupo label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.form-grupo input,
+.form-grupo textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 16px;
+    
+    /* FUERZA EL COLOR NEGRO AQUÍ */
+    color: #1a1a2e !important; 
+    caret-color: #e2b96f; /* El color del palito que parpadea al escribir */
+    
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ESTO ES CLAVE: Evita que el autocompletado de Google lo ponga en blanco */
+.form-grupo input:-webkit-autofill,
+.form-grupo input:-webkit-autofill:hover, 
+.form-grupo input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #1a1a2e !important;
+    -webkit-box-shadow: 0 0 0px 1000px #f8f9fa inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: #e2b96f;
+    background-color: #ffffff;
+    
+    /* REFUERZO DE COLOR NEGRO EN FOCO */
+    color: #1a1a2e !important; 
+    box-shadow: 0 0 0 5px rgba(226, 185, 111, 0.1);
+}
+
+/* Color del texto que ya viene escrito por defecto (placeholder) */
+.form-grupo input::placeholder,
+.form-grupo textarea::placeholder {
+    color: #888888 !important;
+}
+
+.btn-enviar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #1a1a2e;
+    padding: 18px;
+    border-radius: 15px;
+}
+
+.btn-enviar:hover {
+    transform: scale(1.02);
+}
+
+.btn-enviar.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .contacto-contenido {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .icon-box { margin: 0 auto; }
+}

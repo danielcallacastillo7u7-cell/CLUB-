@@ -1,0 +1,130 @@
+/* Por defecto, ocultamos el botón que va dentro de la lista */
+.nav-item-mobile {
+    display: none;
+}
+
+/* En escritorio, mostramos el botón de la derecha */
+.navbar-desktop-action {
+    display: block;
+}
+
+@media (max-width: 900px) {
+    /* En móvil, ocultamos el botón suelto de la derecha */
+    .navbar-desktop-action {
+        display: none;
+    }
+
+    /* Y mostramos el que está dentro de la lista desplegable */
+    .nav-item-mobile {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .navbar-links.activo {
+        display: flex;
+        /* ... resto de tu estilo del menú móvil ... */
+    }
+}
+/* NAVBAR BASE - OCUPA TODO EL ANCHO */
+.navbar {
+    width: 100vw; 
+    height: 80px;
+    background-color: #1a1a2e;
+    position: fixed; /* Fixed para que siempre esté arriba al bajar */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Centra el wrapper interno */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(226, 185, 111, 0.2);
+}
+
+/* CONTENEDOR INTERNO - MANTIENE EL ORDEN */
+.navbar-wrapper {
+    width: 100%;
+    max-width: 1300px; /* Ancho máximo de los textos */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+/* LOGO - ESTILO PROFESIONAL */
+.navbar-logo a {
+    color: #e2b96f;
+    font-size: 24px;
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.navbar-logo a:hover {
+    text-shadow: 0 0 10px rgba(226, 185, 111, 0.4);
+}
+
+/* LINKS DE NAVEGACIÓN */
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    align-items: center;
+}
+
+.navbar-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+    opacity: 0.9;
+}
+
+.navbar-links a:hover {
+    color: #e2b96f;
+    opacity: 1;
+}
+
+/* BOTÓN LOGIN */
+.btn-login {
+    background-color: #e2b96f;
+    color: #1a1a2e !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(226, 185, 111, 0.3);
+}
+
+/* RESPONSIVE - CELULARES */
+@media (max-width: 900px) {
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido */
+        width: 80%;
+        height: 100vh;
+        background-color: #1a1a2e;
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.4s ease-in-out;
+    }
+
+    .navbar-links.activo {
+        right: 0; /* Aparece */
+    }
+
+    .navbar-acciones {
+        display: none; /* Oculta el botón login en PC para mostrarlo en menú móvil si deseas */
+    }
+}

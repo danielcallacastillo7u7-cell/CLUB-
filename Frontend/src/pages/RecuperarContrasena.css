@@ -1,0 +1,397 @@
+    /* =============================================
+    CLUB CATARINDO — RecuperarContrasena.css
+    ============================================= */
+
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap');
+
+    :root {
+    --cc-bg-deep:        #0a0c10;
+    --cc-bg-card:        #161921;
+    --cc-bg-input:       #1c2029;
+    --cc-bg-input-focus: #1f2430;
+    --cc-gold:           #c9a84c;
+    --cc-gold-light:     #e2c47a;
+    --cc-gold-dim:       rgba(201,168,76,.18);
+    --cc-gold-glow:      rgba(201,168,76,.12);
+    --cc-text-primary:   #edeae3;
+    --cc-text-secondary: #8a8d97;
+    --cc-text-hint:      #4e525e;
+    --cc-border:         rgba(255,255,255,.06);
+    --cc-border-focus:   rgba(201,168,76,.55);
+    --cc-border-input:   rgba(255,255,255,.07);
+    --cc-error:          #e06b6b;
+    --cc-error-bg:       rgba(224,107,107,.10);
+    --cc-success:        #5cb87a;
+    --cc-success-bg:     rgba(92,184,122,.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; }
+    #root, #app { width: 100%; height: 100%; }
+
+    /* ── Página ────────────────────────────────── */
+    .recuperar-container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cc-bg-deep);
+    background-image:
+        radial-gradient(ellipse 60% 50% at 20% 20%, rgba(201,168,76,.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 80% 80%, rgba(201,168,76,.04) 0%, transparent 55%);
+    padding: 1.5rem;
+    font-family: 'Jost', sans-serif;
+    }
+
+    /* ── Tarjeta ───────────────────────────────── */
+    .recuperar-card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--cc-bg-card);
+    border-radius: 22px;
+    padding: 2.5rem 2.25rem 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 1px rgba(201,168,76,.08),
+        0 24px 80px rgba(0,0,0,.55);
+
+    animation: cardIn .55s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    /* Borde dorado degradado */
+    .recuperar-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(201,168,76,.35) 0%, transparent 40%, transparent 60%, rgba(201,168,76,.1) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    }
+
+    /* ── Header (ícono + título) ───────────────── */
+    .recuperar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1.6rem;
+    animation: fadeUp .5s .1s both;
+    }
+
+    .recuperar-header span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    background: var(--cc-gold-dim);
+    border: 1px solid rgba(201,168,76,.25);
+    border-radius: 50%;
+    color: var(--cc-gold);
+    }
+
+    .recuperar-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--cc-text-primary);
+    text-align: center;
+    }
+
+    /* ── Pasos ─────────────────────────────────── */
+    .pasos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 1.6rem;
+    animation: fadeUp .5s .18s both;
+    }
+
+    .paso {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    background: #1c2029;
+    border: 1.5px solid var(--cc-text-hint);
+    color: var(--cc-text-hint);
+    transition: all .35s cubic-bezier(.22,1,.36,1);
+    }
+
+    .paso.activo {
+    background: var(--cc-gold-dim);
+    border-color: var(--cc-gold);
+    color: var(--cc-gold);
+    box-shadow: 0 0 12px var(--cc-gold-glow);
+    }
+
+    .paso-linea {
+    flex: 1;
+    max-width: 60px;
+    height: 1.5px;
+    background: var(--cc-border);
+    position: relative;
+    }
+
+    /* ── Error ─────────────────────────────────── */
+    .recuperar-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--cc-error);
+    background: var(--cc-error-bg);
+    border: 1px solid rgba(224,107,107,.2);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 1.1rem;
+    animation: shake .35s cubic-bezier(.36,.07,.19,.97) both;
+    }
+
+    /* ── Info de paso ──────────────────────────── */
+    .recuperar-info {
+    font-size: 13.5px;
+    color: var(--cc-text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    animation: fadeUp .4s .1s both;
+    }
+
+    .recuperar-info strong {
+    color: var(--cc-gold-light);
+    font-weight: 500;
+    }
+
+    /* ── Grupos de campo ────────────────────────── */
+    .form-grupo {
+    margin-bottom: 1rem;
+    animation: fadeUp .4s .2s both;
+    }
+
+    .form-grupo label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--cc-text-hint);
+    margin-bottom: 7px;
+    transition: color .22s;
+    }
+
+    .form-grupo:focus-within label {
+    color: var(--cc-gold);
+    }
+
+    .form-grupo input {
+    width: 100%;
+    height: 48px;
+    background: var(--cc-bg-input);
+    border: 1px solid var(--cc-border-input);
+    border-radius: 10px;
+    color: var(--cc-text-primary);
+    font-family: 'Jost', sans-serif;
+    font-size: 14.5px;
+    padding: 0 14px;
+    outline: none;
+    transition: border-color .22s, background .22s, box-shadow .22s;
+
+    }
+
+    .form-grupo input::placeholder { color: var(--cc-text-hint); font-weight: 300; }
+    .form-grupo input:hover { border-color: rgba(255,255,255,.13); background: var(--cc-bg-input-focus); }
+    .form-grupo input:focus {
+    border-color: var(--cc-border-focus);
+    background: var(--cc-bg-input-focus);
+    box-shadow: 0 0 0 3px var(--cc-gold-glow);
+    }
+
+    /* ── Input contraseña con ojo ───────────────── */
+    .input-contrasena {
+    position: relative;
+    }
+
+    .input-contrasena input { padding-right: 46px; }
+
+    .ojo-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cc-text-hint);
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color .22s, background .22s;
+    }
+
+    .ojo-btn:hover { color: var(--cc-gold-light); background: rgba(201,168,76,.08); }
+
+    /* ── Botones ────────────────────────────────── */
+    .btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 50px;
+    margin-top: 1.4rem;
+    background: linear-gradient(135deg, #c9a84c 0%, #e2c47a 50%, #c9a84c 100%);
+    background-size: 200% 100%;
+    border: none;
+    border-radius: 10px;
+    color: #1a1200;
+    font-family: 'Jost', sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-position .4s, transform .22s, box-shadow .22s, opacity .22s;
+    animation: fadeUp .4s .35s both;
+    }
+
+    .btn-submit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+    transform: translateX(-100%);
+    transition: transform .5s;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+    background-position: 100% 0;
+    box-shadow: 0 4px 24px rgba(201,168,76,.35);
+    transform: translateY(-1px);
+    }
+
+    .btn-submit:hover:not(:disabled)::before { transform: translateX(100%); }
+    .btn-submit:active:not(:disabled) { transform: scale(.98); }
+    .btn-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+    .btn-volver {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 42px;
+    margin-top: .65rem;
+    background: none;
+    border: 1px solid var(--cc-border);
+    border-radius: 10px;
+    color: var(--cc-text-hint);
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .22s, color .22s, background .22s;
+    }
+
+    .btn-volver:hover {
+    border-color: rgba(201,168,76,.3);
+    color: var(--cc-gold-light);
+    background: rgba(201,168,76,.05);
+    }
+
+    /* ── Pantalla de éxito (paso 4) ─────────────── */
+    .recuperar-exito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .85rem;
+    padding: .5rem 0 .5rem;
+    text-align: center;
+    animation: fadeUp .5s both;
+    }
+
+    .recuperar-exito span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: rgba(92,184,122,.12);
+    border: 1px solid rgba(92,184,122,.25);
+    border-radius: 50%;
+    color: var(--cc-success);
+    }
+
+    .recuperar-exito h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cc-text-primary);
+    }
+
+    .recuperar-exito p {
+    font-size: 13.5px;
+    color: var(--cc-text-secondary);
+    }
+
+    /* ── Footer ─────────────────────────────────── */
+    .recuperar-footer {
+    margin-top: 1.4rem;
+    text-align: center;
+    }
+
+    .recuperar-footer a {
+    font-size: 12px;
+    color: var(--cc-text-hint);
+    text-decoration: none;
+    transition: color .22s;
+    }
+
+    .recuperar-footer a:hover { color: var(--cc-gold); }
+
+    /* ── Responsive ─────────────────────────────── */
+    @media (max-width: 520px) {
+    .recuperar-container { padding: 1rem; align-items: flex-start; padding-top: max(2rem, env(safe-area-inset-top)); }
+    .recuperar-card { padding: 2rem 1.5rem 1.75rem; border-radius: 18px; }
+    }
+
+    @media (max-width: 360px) {
+    .recuperar-card { padding: 1.75rem 1.2rem 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    /* ── Keyframes ──────────────────────────────── */
+    @keyframes cardIn {
+    from { opacity: 0; transform: translateY(22px) scale(.97); }
+    to   { opacity: 1; transform: none; }
+    }
+
+    @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+    }
+
+    @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-5px); }
+    40%       { transform: translateX(5px); }
+    60%       { transform: translateX(-3px); }
+    80%       { transform: translateX(3px); }
+}

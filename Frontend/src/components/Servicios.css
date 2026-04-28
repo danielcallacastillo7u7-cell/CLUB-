@@ -1,0 +1,107 @@
+.servicios {
+    /* Fuerza el ancho total ignorando contenedores padres */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.servicios-contenido {
+    /* El contenido interno se expande más */
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 5vw;
+}
+
+.servicios-contenido h2 {
+    font-size: clamp(32px, 5vw, 48px); /* Tamaño fluido */
+    color: #1a1a2e;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+.servicios-subtitulo {
+    font-size: clamp(16px, 2vw, 18px);
+    color: #666;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.servicios-grid {
+    display: grid;
+    /* auto-fit hace que se ajuste solo al ancho disponible */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+}
+
+.servicio-card {
+    background-color: #ffffff;
+    border: 1px solid #f0f0f0; /* Borde sutil */
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio-card:hover {
+    transform: translateY(-12px);
+    background-color: #1a1a2e; /* Cambio de color al pasar el mouse */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Cambio de colores en Hover */
+.servicio-card:hover h3 { color: #e2b96f; }
+.servicio-card:hover p { color: #ffffff; }
+
+.servicio-icono {
+    font-size: 50px;
+    margin-bottom: 20px;
+    background: #f9f6f0;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.servicio-card:hover .servicio-icono {
+    background: rgba(226, 185, 111, 0.2);
+    transform: scale(1.1);
+}
+
+.servicio-card h3 {
+    font-size: 22px;
+    color: #1a1a2e;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.servicio-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .servicios {
+        padding: 60px 0;
+    }
+    
+    .servicios-grid {
+        grid-template-columns: 1fr; /* Una sola columna en celulares */
+        padding: 0 10px;
+    }
+}

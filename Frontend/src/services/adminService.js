@@ -1,5 +1,5 @@
 
-const API = '[club-production-ed73.up.railway.app]'; // Ajusta si tu ruta base de admin es diferente
+const API = 'https://club-production-ed73.up.railway.app'; // Ajusta si tu ruta base de admin es diferente
 
 // Función auxiliar para armar los headers con el token
 const getHeaders = (token) => ({

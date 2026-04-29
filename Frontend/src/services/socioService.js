@@ -1,4 +1,4 @@
-const API = 'https://club-production-ed73.up.railway.app';
+const API = '[https://club-production-ed73.up.railway.app/]';
 
 export const getPerfil = async (token) => {
     try {

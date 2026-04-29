@@ -1,4 +1,4 @@
-const API = 'https://club-production-ed73.up.railway.app';
+const API = '[https://club-production-ed73.up.railway.app/]';
 
 // --- LOGIN Y REGISTRO DE SOCIOS ---
 export const loginSocio = async (correo, contrasena) => {

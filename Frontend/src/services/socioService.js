@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000/api'
+const API = '[club-production-ed73.up.railway.app]';
 
 export const getPerfil = async (token) => {
     try {
@@ -11,6 +11,7 @@ export const getPerfil = async (token) => {
         console.error('Error obteniendo perfil:', error)
         return { error: 'No se pudo conectar con el servidor' }
     }
+    
     }
 
     export const getCuentaMensual = async (token) => {

@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000/api';
+const API = '[club-production-ed73.up.railway.app]';
 
 // --- LOGIN Y REGISTRO DE SOCIOS ---
 export const loginSocio = async (correo, contrasena) => {

@@ -1,7 +1,7 @@
-const mysql = require('mysql2/promise');
+const mysql = require('mysql2');
 require('dotenv').config(); // Esto tiene que estar SI O SI aquí
 
-const pool = mysql.createPool({
+const pool = mysql.createConnection({
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',      // Si falla el .env, usará 'root'
     password: process.env.DB_PASSWORD || '',   // Si falla el .env, usará vacío

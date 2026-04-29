@@ -1,4 +1,5 @@
-const API = 'http://localhost:3000/api'; // Ajusta si tu ruta base de admin es diferente
+
+const API = '[club-production-ed73.up.railway.app]'; // Ajusta si tu ruta base de admin es diferente
 
 // Función auxiliar para armar los headers con el token
 const getHeaders = (token) => ({

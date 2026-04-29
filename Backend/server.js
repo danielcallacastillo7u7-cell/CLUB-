@@ -6,7 +6,7 @@ const app = express()
 
 // Middlewares
 app.use(cors({
-    origin: 'https://club-pi-swart.vercel.app/',
+    origin: 'htthttps://club-production-ed73.up.railway.app/ps://club-pi-swart.vercel.app/',
     credentials: true
 }))
 app.use(express.json({ limit: '50mb' }));
